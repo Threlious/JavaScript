@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+
+<body>
+  <!--
+Обязательное задание.
+
+Необходимо скопировать и вставить в данный скрипт все функции из 4 задания.
+Необходимо реализовать функцию:
+mathOperation(arg1, arg2, operation);
+Параметры:
+arg1 - первое число.
+arg2 - второе число.
+operation - строка, которая содержит один символ из: "+", "-", "*", "/".
+Функция mathOperation должна вернуть результат операции, который был передан в
+параметр operation для двух первых аргументов (arg1 и arg2).
+Функция mathOperation должна использовать для вычисления функции из 4 задания.
+
+Примеры вызова функции:
+console.log(mathOperation(5, 3, "+")); // 8
+console.log(mathOperation(5, 3, ":)")); // NaN
+
+Функции mathOperation всегда передаются корректные числа, проверки на NaN,
+Infinity делать не нужно, однако, в случае если был передан некорректный
+аргумент в параметр operation, необходимо вернуть NaN.
+
+Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+-->
+  <script>
+    "use strict";
+
+    /**
+     * Функция суммирования двух чисел.
+     * @param {Number} a - Первое число.
+     * @param {Number} b - Второе число.
+     * @returns {Number} res - Сумма чисел a и b.
+     */
+    function sum(a, b) {
+      const res = a + b;
+      return res;
+    }
+
+    /**
+     * Функция разности двух чисел.
+     * @param {Number} a - Первое число.
+     * @param {Number} b - Второе число.
+     * @returns {Number} res - Разность чисел a и b.
+     */
+    function dif(a, b) {
+      let res = undefined;
+      if (a > b) {
+        res = a - b;
+      } else if (a < b) {
+        res = b - a;
+      } else if (a === b) {
+        res = 0;
+      }
+      return res;
+    }
+
+    /**
+     * Функция умножения двух чисел.
+     * @param {Number} a - Первое число.
+     * @param {Number} b - Второе число.
+     * @returns {Number} res - Произведение чисел a и b.
+     */
+    function mul(a, b) {
+      const res = a * b;
+      return res;
+    }
+
+    /**
+     * Функция деления двух чисел.
+     * @param {Number} a - Первое число.
+     * @param {Number} b - Второе число.
+     * @returns {Number} res - Частное чисел a и b.
+     */
+    function div(a, b) {
+      const res = a / b;
+      return res;
+    }
+
+    /**
+     * Функция выполняет действие над аргументами, которые вводит пользователь.
+     Само действие также определяет пользователь.
+     * @param {Number} arg1 - Первое число.
+     * @param {Number} arg2 - Второе число.
+     * @param {String} operation - Действие над числами ("+", "-", "*", "/").
+     * @returns {Number} res - Результат операции над числами.
+     * @description Если был передан некорректный аргумент в параметр operation,
+     то вернёт NaN.
+     */
+    function mathOperation(arg1, arg2, operation) {
+      switch (operation) {
+        case "+":
+          return sum(arg1, arg2);
+          break;
+        case "-":
+          return dif(arg1, arg2);
+          break;
+        case "*":
+          return mul(arg1, arg2);
+          break;
+        case "/":
+          return div(arg1, arg2);
+          break;
+        default:
+          return NaN;
+          break;
+      }
+    }
+
+    console.log(mathOperation(5, 8, "+"));
+    console.log(mathOperation(5, 8, "-"));
+    console.log(mathOperation(5, 8, "*"));
+    console.log(mathOperation(9, 3, "/"));
+    console.log(mathOperation(5, 8, ":)"));
+
+  </script>
+</body>
+
+</html>
